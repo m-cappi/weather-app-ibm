@@ -36,7 +36,6 @@ const Navigation = () => {
 export default Navigation;
 
 const screenOptions = (route, color) => {
-  console.log('corriendo screen options');
   let iconName;
   let iconType;
   switch (route.name) {
@@ -49,6 +48,5 @@ const screenOptions = (route, color) => {
       iconType = 'material-community';
       break;
   }
-  console.log(iconName);
   return <Icon type={iconType} name={iconName} size={22} color={color} />;
 };
