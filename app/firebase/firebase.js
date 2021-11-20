@@ -15,42 +15,46 @@ class Firebase {
     this.storage = app.storage();
   }
 
-  reauthenticate(password) {
+  async reauthenticate(password) {
     const user = this.auth.currentUser;
     const credentials = app.auth.EmailAuthProvider.credential(
       user.email,
       password,
     );
-    return user.reauthenticateWithCredential(credentials);
+    return await user.reauthenticateWithCredential(credentials);
   }
 
-  updateEmail(password, email) {
-    return this.reauthenticate(password).then(() =>
+  async updateEmail(password, email) {
+    return await this.reauthenticate(password).then(() =>
       this.auth.currentUser.updateEmail(email),
     );
   }
 
-  updateProfile(payload) {
-    return this.auth.currentUser.updateProfile(payload);
+  async updateProfile(payload) {
+    return await this.auth.currentUser.updateProfile(payload);
   }
 
-  updatePassword(password, newPassword) {
-    return this.reauthenticate(password).then(() =>
+  async updatePassword(password, newPassword) {
+    return await this.reauthenticate(password).then(() =>
       this.auth.currentUser.updatePassword(newPassword),
     );
   }
 
-  addFavorite(id) {
-    const payload = {userId: this.auth.currentUser.uid, albumId: id};
-    return this.db.collection('favorites').add(payload);
+  async addFavorite({id, alias = null}) {
+    const payload = {
+      userId: this.auth.currentUser.uid,
+      cityId: id,
+      alias: alias,
+    };
+    return await this.db.collection('favorites').add(payload);
   }
 
-  removeFavorite(id) {
+  async removeFavorite(id) {
     try {
       const userId = this.auth.currentUser.uid;
-      return this.db
+      return await this.db
         .collection('favorites')
-        .where('albumId', '==', id)
+        .where('cityId', '==', id)
         .where('userId', '==', userId)
         .get()
         .then(res => {
@@ -64,11 +68,11 @@ class Firebase {
     }
   }
 
-  checkFavoriteStatus(id) {
+  async checkFavoriteStatus(id) {
     const userId = this.auth.currentUser.uid;
-    return this.db
+    return await this.db
       .collection('favorites')
-      .where('albumId', '==', id)
+      .where('cityId', '==', id)
       .where('userId', '==', userId)
       .get();
   }
@@ -82,10 +86,38 @@ class Firebase {
       .then(res => {
         const idList = [];
         res.forEach(doc => {
-          idList.push(doc.data().albumId);
+          idList.push(doc.data().cityId);
         });
         return idList;
       });
+  }
+
+  async addCity(data) {
+    const payload = data;
+    return await this.db.collection('cities').add(payload);
+  }
+
+  async getCity(id) {
+    return await this.db.collection('cities').where('cityId', '==', id).get();
+  }
+
+  async getCities(idArr) {
+    const citiesCollection = [];
+    Promise.all(
+      idArr.forEach(
+        async id =>
+          await this.db
+            .collection('cities')
+            .where('cityId', '==', id)
+            .get()
+            .then(res => {
+              const city = res.data();
+              city.id = res.id;
+              citiesCollection.push(city);
+            }),
+      ),
+    );
+    return citiesCollection;
   }
 }
 
