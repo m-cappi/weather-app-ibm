@@ -92,6 +92,11 @@ class Firebase {
       });
   }
 
+  async addCity(data) {
+    const payload = data;
+    return await this.db.collection('cities').add(payload);
+  }
+
 }
 
 const firebase = new Firebase();
