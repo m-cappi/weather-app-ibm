@@ -101,6 +101,24 @@ class Firebase {
     return await this.db.collection('cities').where('cityId', '==', id).get();
   }
 
+  async getCities(idArr) {
+    const citiesCollection = [];
+    Promise.all(
+      idArr.forEach(
+        async id =>
+          await this.db
+            .collection('cities')
+            .where('cityId', '==', id)
+            .get()
+            .then(res => {
+              const city = res.data();
+              city.id = res.id;
+              citiesCollection.push(city);
+            }),
+      ),
+    );
+    return citiesCollection;
+  }
 }
 
 const firebase = new Firebase();
