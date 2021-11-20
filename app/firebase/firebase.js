@@ -97,6 +97,10 @@ class Firebase {
     return await this.db.collection('cities').add(payload);
   }
 
+  async getCity(id) {
+    return await this.db.collection('cities').where('cityId', '==', id).get();
+  }
+
 }
 
 const firebase = new Firebase();
