@@ -1,21 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
+import {StatusBar} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
+import colors from '../styles/palette';
 import DemoStack from './DemoStack';
+import AccountStack from './AccountStack';
 
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <NavigationContainer>
+      <StatusBar barStyle="light-content" backgroundColor={colors.med3} />
       <Tab.Navigator
         initialRouteName="demo-stack"
         screenOptions={({route}) => ({
           headerShown: false,
-          tabBarActiveTintColor: '#00a680',
-          tabBarInactiveTintColor: '#646464',
+          tabBarActiveBackgroundColor: colors.med3,
+          tabBarInactiveBackgroundColor: colors.dark2,
+          tabBarHideOnKeyboard: true,
+          tabBarActiveTintColor: '#000',
+          tabBarInactiveTintColor: '#fff',
           tabBarIcon: ({color}) => screenOptions(route, color),
         })}>
         {/* <Tab.Screen
@@ -27,6 +38,11 @@ const Navigation = () => {
           name="demo-stack"
           component={DemoStack}
           options={{title: 'Demo'}}
+        />
+        <Tab.Screen
+          name="account-stack"
+          component={AccountStack}
+          options={{title: 'My Profile'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
@@ -42,6 +58,10 @@ const screenOptions = (route, color) => {
     case 'demo-stack':
       iconName = 'space-shuttle';
       iconType = 'font-awesome';
+      break;
+    case 'account-stack':
+      iconName = 'home-outline';
+      iconType = 'material-community';
       break;
     default:
       iconName = 'alert-decagram';
