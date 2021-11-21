@@ -27,6 +27,14 @@ class WeatherApi {
       `api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=${days}&appid=${this.apiKey}&lang=es&units=metric`,
     );
   }
+
+  async getIcon(icon) {
+    return await axios.get(`http://openweathermap.org/img/wn/${icon}@2x.png`);
+  }
+
+  async getLargeIcon(icon) {
+    return await axios.get(`http://openweathermap.org/img/wn/${icon}@4x.png`);
+  }
 }
 
 const weatherApi = new WeatherApi();
