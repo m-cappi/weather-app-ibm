@@ -14,10 +14,12 @@ class WeatherApi {
   }
 
   async getIcon(icon) {
+    //at .weather.icon
     return await axios.get(`http://openweathermap.org/img/wn/${icon}@2x.png`);
   }
 
   async getLargeIcon(icon) {
+    //at .weather.icon
     return await axios.get(`http://openweathermap.org/img/wn/${icon}@4x.png`);
   }
 }
