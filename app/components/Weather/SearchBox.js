@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {Formik} from 'formik';
 import {Input, Icon, Button} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import {isEmpty} from 'lodash';
 
+import {WeatherApiContext} from '../../weatherapi';
 import colors from '../../styles/palette';
 import {SearchSchema} from '../../utils/validation';
 import Error from '../Error';
@@ -13,12 +13,25 @@ import Loading from '../Loading';
 const SearchBox = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSearch = () => {};
+  const navigation = useNavigation();
+  const weatherApi = useContext(WeatherApiContext);
+
+  const showWeather = payload => {
+    navigation.navigate('search-results', {payload});
+  };
+
+  const handleSearch = async values => {
+    setIsLoading(true);
+    const weather = await weatherApi.currentWeather(values.city);
+    console.log(weather);
+    setIsLoading(false);
+    //showWeather(weather);
+  };
 
   return (
     <>
       <Formik
-        initialValues={{searchValue: ''}}
+        initialValues={{city: ''}}
         validationSchema={SearchSchema}
         onSubmit={values => handleSearch(values)}>
         {({
@@ -31,9 +44,9 @@ const SearchBox = () => {
         }) => (
           <View style={styles.formContainer}>
             <Input
-              onChangeText={handleChange('searchValue')}
-              onBlur={handleBlur('searchValue')}
-              value={values.searchValue}
+              onChangeText={handleChange('city')}
+              onBlur={handleBlur('city')}
+              value={values.city}
               placeholder="Ciudad..."
               containerStyle={styles.inputForm}
               rightIcon={
@@ -45,9 +58,7 @@ const SearchBox = () => {
                 />
               }
             />
-            {errors.searchValue && touched.searchValue && (
-              <Error error={errors.searchValue} />
-            )}
+            {errors.city && touched.city && <Error error={errors.city} />}
             <Button
               title="Buscar!"
               containerStyle={styles.btnContainerSearch}
