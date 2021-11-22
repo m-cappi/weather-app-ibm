@@ -8,6 +8,7 @@ import SplashScreen from 'react-native-splash-screen';
 import colors from '../styles/palette';
 import DemoStack from './DemoStack';
 import AccountStack from './AccountStack';
+import WeatherStack from './WeatherStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,7 +43,12 @@ const Navigation = () => {
         <Tab.Screen
           name="account-stack"
           component={AccountStack}
-          options={{title: 'My Profile'}}
+          options={{title: 'Mi Perfil'}}
+        />
+        <Tab.Screen
+          name="weather-stack"
+          component={WeatherStack}
+          options={{title: 'Clima'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
