@@ -24,17 +24,17 @@ const AccountStack = () => {
       <Stack.Screen
         name="account"
         component={Account}
-        options={{title: 'My Account'}}
+        options={{title: 'Mi Perfil'}}
       />
       <Stack.Screen
         name="login"
         component={Login}
-        options={{title: 'Sign In'}}
+        options={{title: 'Inicia Sesion'}}
       />
       <Stack.Screen
         name="register"
         component={Register}
-        options={{title: 'Sign Up'}}
+        options={{title: 'Registrate'}}
       />
     </Stack.Navigator>
   );

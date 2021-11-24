@@ -43,4 +43,4 @@ export const UpdatePasswordSchema = yup.object().shape({
 
 export const NameChangeSchema = yup.object().shape({displayName: nameRule});
 
-export const SearchSchema = yup.object().shape({searchValue: searchRule});
+export const SearchSchema = yup.object().shape({city: searchRule});

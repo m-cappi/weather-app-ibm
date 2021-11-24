@@ -48,3 +48,11 @@
   "cod": 200
 }
 ```
+
+- Bad request example
+```bash
+{
+  "cod": "404",
+  "message": "city not found"
+}
+```
