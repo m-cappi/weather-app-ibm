@@ -1,8 +1,8 @@
 import React from 'react';
 //import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import Navigation from './navigations/Navigation';
-import firebase, {FirebaseContext} from './firebase';
-import weatherApi, {WeatherApiContext} from './weatherapi';
+import Navigation from './app/navigations/Navigation';
+import firebase, {FirebaseContext} from './app/firebase';
+import weatherApi, {WeatherApiContext} from './app/weatherapi';
 
 const App = () => {
   return (

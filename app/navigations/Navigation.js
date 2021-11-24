@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
 import {StatusBar} from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
+
 
 import colors from '../styles/palette';
 import DemoStack from './DemoStack';
@@ -13,9 +13,7 @@ import WeatherStack from './WeatherStack';
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor={colors.med3} />
