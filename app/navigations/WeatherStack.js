@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import colors from '../styles/palette';
 import Weather from '../screens/Weather/Weather';
+import SearchResult from '../screens/Weather/SearchResult';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ const WeatherStack = () => {
         name="weather"
         component={Weather}
         options={{title: 'Clima'}}
+      />
+      <Stack.Screen
+        name="search-result"
+        component={SearchResult}
+        options={{title: 'Busqueda'}}
       />
     </Stack.Navigator>
   );

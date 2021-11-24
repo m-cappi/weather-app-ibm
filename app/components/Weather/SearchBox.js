@@ -16,8 +16,8 @@ const SearchBox = () => {
   const navigation = useNavigation();
   const weatherApi = useContext(WeatherApiContext);
 
-  const showWeather = payload => {
-    navigation.navigate('search-results', {payload});
+  const showWeather = weather => {
+    navigation.navigate('search-result', {params:{weather}});
   };
 
   const handleSearch = async values => {
@@ -25,7 +25,8 @@ const SearchBox = () => {
     const weather = await weatherApi.currentWeather(values.city);
     console.log(weather);
     setIsLoading(false);
-    //showWeather(weather);
+    if (weather.cod === 404) navigation.navigate('not-found');
+    else  //showWeather(weather);
   };
 
   return (
