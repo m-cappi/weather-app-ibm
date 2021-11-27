@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Button} from 'react-native-elements';
 
 import DemoComponent from '../../components/DemoComponent';
+import DemoQuienesComponent from '../../components/DemoQuienesComponent';
 
 const DemoScreen = () => {
   const navigation = useNavigation();
@@ -14,6 +15,10 @@ const DemoScreen = () => {
       <Button
         onPress={() => navigation.navigate('demo-sub')}
         title="Go to sub-demo"
+      />
+      <Button
+        onPress={() => navigation.navigate('demo-quienes')}
+        title="quienes"
       />
     </View>
   );
