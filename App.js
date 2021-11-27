@@ -8,7 +8,7 @@ const App = () => {
   return (
     // <GestureHandlerRootView style={{flex: 1}}>
     <FirebaseContext.Provider value={{firebase}}>
-      <WeatherApiContext.Provider value={{weatherApi}}>
+      <WeatherApiContext.Provider value={weatherApi}>
         <Navigation />
       </WeatherApiContext.Provider>
     </FirebaseContext.Provider>
