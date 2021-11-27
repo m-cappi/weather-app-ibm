@@ -5,7 +5,6 @@ import SearchBox from '../../components/Weather/SearchBox';
 const Weather = () => {
   return (
     <View>
-      <Text>Weather screen...</Text>
       <SearchBox />
     </View>
   );

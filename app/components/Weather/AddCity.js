@@ -41,7 +41,6 @@ const AddCity = ({ city }) => {
     return (
         isLoggedIn && (
             <View>
-                <Text>{city}</Text>
                 <Button
                     title={
                         isFavorite

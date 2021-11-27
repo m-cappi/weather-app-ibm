@@ -8,13 +8,15 @@ import AddCity from "../../components/Weather/AddCity";
 const SearchResult = ({ navigation, route }) => {
     const { weather } = route.params;
     const weatherApi = useContext(WeatherApiContext);
-    const iconUrl = weatherApi.getLargeIcon(weather.weather[0].icon);
-    const windDirection = weatherApi.getDirection(weather.wind.deg);
+
     useEffect(() => {
         if (weather?.name) {
             navigation.setOptions({ title: weather.name });
         }
     }, [weather]);
+
+    const iconUrl = weatherApi.getLargeIcon(weather.weather[0].icon);
+    const windDirection = weatherApi.getDirection(weather.wind.deg);
 
     const weatherItems = [
         { title: "Temperatura", value: `${weather.main.temp} °C` },
