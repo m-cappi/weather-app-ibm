@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import {Image} from 'react-native-elements';
 import {map} from 'lodash';
 
@@ -17,18 +18,20 @@ const WeatherList = ({cities, navigation}) => {
   const [weatherList, setWeatherList] = useState([]);
   const weatherApi = useContext(WeatherApiContext);
 
-  useEffect(() => {
-    (async () => {
-      const promise = await new Promise.all(
-        map(
-          cities,
-          async cityName =>
-            await weatherApi.currentWeather(cityName).then(res => res.data),
-        ),
-      );
-      setWeatherList(promise);
-    })();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      (async () => {
+        const promise = await new Promise.all(
+          map(
+            cities,
+            async cityName =>
+              await weatherApi.currentWeather(cityName).then(res => res.data),
+          ),
+        );
+        setWeatherList(promise);
+      })();
+    }, [cities]),
+  );
 
   return (
     <View>
