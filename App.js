@@ -9,7 +9,8 @@ LogBox.ignoreLogs([
   "It appears that",
   "Animated: `useNativeDriver`",
   "expo-permissions is now deprecated",
-  " Cannot update a component",
+  "Cannot update a component",
+  "AsyncStorage has been extracted from react-native"
 ]);
 const App = () => {
   return (

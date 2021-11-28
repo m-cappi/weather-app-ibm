@@ -24,8 +24,7 @@ const AddCity = ({city}) => {
         firebase
           .checkFavoriteStatus(city)
           .then(res => {
-            console.log(res.docs);
-            if (res.docs.length > 1) {
+            if (res.docs.length >= 1) {
               setIsFavorite(true);
             }
           })
