@@ -5,11 +5,12 @@ import {Icon} from 'react-native-elements';
 import {StatusBar} from 'react-native';
 
 import colors from '../styles/palette';
-import DemoStack from './DemoStack';
+//import DemoStack from './DemoStack';
 import AccountStack from './AccountStack';
 import SearchStack from './SearchStack';
 import AboutStack from './AboutStack';
 import FavWeatherStack from './FavWeatherStack';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ const Navigation = () => {
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor={colors.med3} />
       <Tab.Navigator
-        initialRouteName="demo-stack"
+        initialRouteName="home-stack"
         screenOptions={({route}) => ({
           headerShown: false,
           tabBarActiveBackgroundColor: colors.med3,
@@ -33,10 +34,15 @@ const Navigation = () => {
                     options={{ title: "your tab button title" }}
                     component={your navigation stack}
                 /> */}
-        <Tab.Screen
+        {/* <Tab.Screen
           name="demo-stack"
           component={DemoStack}
           options={{title: 'Demo'}}
+        /> */}
+        <Tab.Screen
+          name="home-stack"
+          component={HomeStack}
+          options={{title: 'Home'}}
         />
         <Tab.Screen
           name="about-stack"
@@ -74,6 +80,10 @@ const screenOptions = (route, color) => {
       iconType = 'font-awesome';
       break;
     case 'account-stack':
+      iconName = 'account-outline';
+      iconType = 'material-community';
+      break;
+    case 'home-stack':
       iconName = 'home-outline';
       iconType = 'material-community';
       break;
