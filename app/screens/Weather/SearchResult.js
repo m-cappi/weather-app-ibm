@@ -17,12 +17,14 @@ const SearchResult = ({navigation, route}) => {
 
   const iconUrl = weatherApi.getLargeIcon(weather.weather[0].icon);
   const windDirection = weatherApi.getDirection(weather.wind.deg);
+  const windSpeed = Math.round((weather.wind.speed * 1.94384 + Number.EPSILON) * 10) / 10
+  
 
   const weatherItems = [
     {title: 'Temperatura', value: `${weather.main.temp} °C`},
     {title: 'Sensacion Termica', value: `${weather.main.feels_like} °C`},
     {title: 'Humedad Relativa', value: `${weather.main.humidity} %`},
-    {title: 'Viento', value: `${weather.wind.speed}m/s ${windDirection}`},
+    {title: 'Viento (nudos)', value: `${windDirection} ${windSpeed} knt`},
     {title: 'Presion Atmosferica', value: `${weather.main.pressure} hPA`},
   ];
 
