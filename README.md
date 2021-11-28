@@ -16,6 +16,13 @@
   ```
 - Espera a que todo cargue y listo!
 
+### Alternativa: Demo autoinstalable para tu dispositivo
+
+Opcionalmente, podes decidir instalar la demo en tu emulador o dispositivo android de las siguientes fuentes:
+
+- APK para Android. [Descarga](https://drive.google.com/file/d/1B58nhY-wpG1l7nZ-dKoBVjPea7eb3Pho/view?usp=sharing)
+- Bundle para la app de Expo. [Link](https://expo.dev/@nepha199/nubesheladas)
+
 ## Paperprototyping
 
 <img src="./assets/proto01.jpeg" alt="guest screen" height="200" />
