@@ -9,6 +9,7 @@ import DemoStack from './DemoStack';
 import AccountStack from './AccountStack';
 import SearchStack from './SearchStack';
 import AboutStack from './AboutStack';
+import FavWeatherStack from './FavWeatherStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,14 +44,19 @@ const Navigation = () => {
           options={{title: 'Nosotros'}}
         />
         <Tab.Screen
-          name="account-stack"
-          component={AccountStack}
-          options={{title: 'Mi Perfil'}}
+          name="weather-stack"
+          component={FavWeatherStack}
+          options={{title: 'Mi Clima'}}
         />
         <Tab.Screen
           name="search-stack"
           component={SearchStack}
           options={{title: 'Buscar'}}
+        />
+        <Tab.Screen
+          name="account-stack"
+          component={AccountStack}
+          options={{title: 'Mi Perfil'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
