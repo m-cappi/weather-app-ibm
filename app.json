@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "weatherAppIBM",
-    "slug": "weatherAppIBM",
+    "name": "Nubes Heladas",
+    "slug": "nubesheladas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -29,10 +31,13 @@
         "LOCATION",
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION"
-      ]
+      ],
+      "package": "com.nepha199.nubesheladas"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "MobileApp de Clima para la especializacion en Mobile de Codo a Codo & IBM",
+    "githubUrl": "https://github.com/nepha199/weather-app-ibm"
   }
 }
