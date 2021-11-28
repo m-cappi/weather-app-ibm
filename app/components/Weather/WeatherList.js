@@ -34,35 +34,42 @@ const WeatherList = ({cities, navigation}) => {
   );
 
   return (
-    <View>
-      {weatherList.length === 0 ? (
+    <>
+      {weatherList.length === 0  ? (
         <View style={styles.viewLoading}>
           <ActivityIndicator size="large" color={colors.dark1} />
-          <Text>Loading...</Text>
         </View>
       ) : (
-        <FlatList
-          data={weatherList}
-          renderItem={city => (
-            <WeatherItem
-              city={city}
-              navigation={navigation}
-              weatherApi={weatherApi}
-            />
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        <View>
+          <FlatList
+            data={weatherList}
+            renderItem={city => (
+              <WeatherItem
+                city={city}
+                navigation={navigation}
+                weatherApi={weatherApi}
+              />
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
       )}
-    </View>
+    </>
   );
 };
 
 export default WeatherList;
 
 const styles = StyleSheet.create({
+  viewLoading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 500,
+  },
   loadingCitys: {marginVertical: 10, alignItems: 'center'},
   viewCity: {flexDirection: 'row', margin: 10},
-  viewCityImg: {marginRight: 15, backgroundColor: '#fcfcfc', borderRadius: 30},
+  viewCityImg: {marginRight: 15, backgroundColor: '#fff', borderRadius: 30},
   imgCity: {width: 80, height: 80},
   cityName: {fontWeight: 'bold'},
   cityAddress: {paddingTop: 2, color: 'grey'},
