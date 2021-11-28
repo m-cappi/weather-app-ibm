@@ -86,7 +86,7 @@ const AccountOptions = ({userInfo, toastRef, setReloadUser}) => {
 const generateOptions = callback => {
   return [
     {
-      title: 'Change user name',
+      title: 'Cambiar nombre de Usuario',
       iconType: 'material-community',
       iconNameLeft: 'account-circle',
       iconColorLeft: '#ccc',
@@ -95,7 +95,7 @@ const generateOptions = callback => {
       onPress: () => callback('displayName'),
     },
     {
-      title: 'Change email',
+      title: 'Cambiar email',
       iconType: 'material-community',
       iconNameLeft: 'at',
       iconColorLeft: '#ccc',
@@ -104,7 +104,7 @@ const generateOptions = callback => {
       onPress: () => callback('email'),
     },
     {
-      title: 'Change password',
+      title: 'Cambiar contraseña',
       iconType: 'material-community',
       iconNameLeft: 'lock-reset',
       iconColorLeft: '#ccc',

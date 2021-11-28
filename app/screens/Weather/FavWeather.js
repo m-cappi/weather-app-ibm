@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {FirebaseContext} from '../../firebase';
 
 import UserNotLogged from '../../components/UserNotLogged';

@@ -30,9 +30,9 @@ const CreateAccount = () => {
 
   return (
     <View style={styles.viewRegister}>
-      <Text>First time around?{'\n'}</Text>
+      <Text>Primera vez?{'\n'}</Text>
       <Text style={styles.link} onPress={() => navigation.navigate('register')}>
-        Register now!
+        Registrate!
       </Text>
     </View>
   );
@@ -58,5 +58,6 @@ const styles = StyleSheet.create({
     color: colors.med3,
     fontWeight: 'bold',
     fontSize: 17,
+    paddingBottom:30
   },
 });

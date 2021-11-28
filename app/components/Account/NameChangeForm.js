@@ -20,7 +20,7 @@ const NameChangeForm = ({
 
   const updateName = values => {
     if (displayName === values.displayName) {
-      setError("Your name hasn't changed!");
+      setError("Tu nombre no cambio!");
       return;
     }
     setIsLoading(true);
@@ -29,14 +29,14 @@ const NameChangeForm = ({
     firebase
       .updateProfile(update)
       .then(() => {
-        toastRef.current.show('Name updated successfully!');
+        toastRef.current.show('Nombre actualizado correctamente!');
         setReloadUser(current => !current);
         setShowModal(false);
       })
       .catch(err => {
         setIsLoading(false);
         console.warn('@updateName.catch: ', err);
-        setError("There's been an error updating your account");
+        setError("Ups! Ha ocurrido un error");
       });
   };
   return (
@@ -53,7 +53,7 @@ const NameChangeForm = ({
             onChangeText={handleChange('displayName')}
             onBlur={handleBlur('displayName')}
             value={values.displayName}
-            placeholder="User name"
+            placeholder="Nombre de usuario"
             containerStyle={styles.inputForm}
             rightIcon={
               <Icon
@@ -67,7 +67,7 @@ const NameChangeForm = ({
             <Error error={errors.displayName} />
           )}
           <Button
-            title="Update Name"
+            title="Actualizar nombre"
             containerStyle={styles.btnContainerRegister}
             buttonStyle={styles.btnRegister}
             onPress={handleSubmit}

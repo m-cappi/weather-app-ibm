@@ -24,7 +24,7 @@ const RegistrationForm = ({toastRef}) => {
       })
       .catch(() => {
         setIsLoading(false);
-        toastRef.current.show('Email is already in use!', 4000);
+        toastRef.current.show('Ese email ya esta en uso!', 4000);
       });
   };
   return (
@@ -46,7 +46,7 @@ const RegistrationForm = ({toastRef}) => {
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
-              placeholder="Your email"
+              placeholder="Tu email"
               containerStyle={styles.inputForm}
               rightIcon={
                 <Icon
@@ -61,7 +61,7 @@ const RegistrationForm = ({toastRef}) => {
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               value={values.password}
-              placeholder="Password"
+              placeholder="Contraseña"
               password={true}
               secureTextEntry={showPassword ? false : true}
               containerStyle={styles.inputForm}
@@ -83,7 +83,7 @@ const RegistrationForm = ({toastRef}) => {
               onChangeText={handleChange('confirmationPassword')}
               onBlur={handleBlur('confirmationPassword')}
               value={values.confirmationPassword}
-              placeholder="Password Confirmation"
+              placeholder="Confirme la contraseña"
               password={true}
               secureTextEntry={showPassword ? false : true}
               containerStyle={styles.inputForm}
@@ -102,7 +102,7 @@ const RegistrationForm = ({toastRef}) => {
               <Error error={errors.confirmationPassword} />
             )}
             <Button
-              title="Register!"
+              title="Registrate!"
               containerStyle={styles.btnContainerRegister}
               buttonStyle={styles.btnRegister}
               onPress={handleSubmit}
@@ -110,7 +110,7 @@ const RegistrationForm = ({toastRef}) => {
           </View>
         )}
       </Formik>
-      <Loading isVisible={isLoading} text="Creating your account..." />
+      <Loading isVisible={isLoading} text="Estamos creando tu cuenta..." />
     </>
   );
 };

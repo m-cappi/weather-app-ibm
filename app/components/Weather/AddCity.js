@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Button} from 'react-native-elements';
 
 import {FirebaseContext} from '../../firebase';

@@ -19,14 +19,14 @@ const PasswordChangeForm = ({setShowModal, toastRef}) => {
     firebase
       .updatePassword(values.password, values.newPassword)
       .then(() => {
-        toastRef.current.show('Password updated successfully!');
+        toastRef.current.show('Contraseña actualizada!');
         setShowModal(false);
         firebase.auth.signOut();
       })
       .catch(err => {
         setIsLoading(false);
         console.warn(err);
-        setError("There's been an error updating your password");
+        setError('Ups! Ha ocurrido un error');
       });
   };
   return (
@@ -45,7 +45,7 @@ const PasswordChangeForm = ({setShowModal, toastRef}) => {
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             value={values.password}
-            placeholder="Password"
+            placeholder="Contraseña"
             password={true}
             secureTextEntry={showPassword ? false : true}
             containerStyle={styles.inputForm}
@@ -67,7 +67,7 @@ const PasswordChangeForm = ({setShowModal, toastRef}) => {
             onChangeText={handleChange('newPassword')}
             onBlur={handleBlur('newPassword')}
             value={values.newPassword}
-            placeholder="New Password"
+            placeholder="Nueva contraseña"
             password={true}
             secureTextEntry={showPassword ? false : true}
             containerStyle={styles.inputForm}
@@ -89,7 +89,7 @@ const PasswordChangeForm = ({setShowModal, toastRef}) => {
             onChangeText={handleChange('newConfirmationPassword')}
             onBlur={handleBlur('newConfirmationPassword')}
             value={values.newConfirmationPassword}
-            placeholder="New Password Confirmation"
+            placeholder="Confirme la nueva contraseña"
             password={true}
             secureTextEntry={showPassword ? false : true}
             containerStyle={styles.inputForm}
@@ -109,7 +109,7 @@ const PasswordChangeForm = ({setShowModal, toastRef}) => {
               <Error error={errors.newConfirmationPassword} />
             )}
           <Button
-            title="Update Password"
+            title="Cambiar contraseña"
             containerStyle={styles.btnContainerRegister}
             buttonStyle={styles.btnRegister}
             onPress={handleSubmit}

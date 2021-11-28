@@ -26,7 +26,7 @@ const LoginForm = ({toastRef}) => {
       })
       .catch(() => {
         setIsLoading(false);
-        toastRef.current.show('Invalid credentials!', 4000);
+        toastRef.current.show('Credenciales invalidas!', 4000);
       });
   };
 
@@ -52,7 +52,7 @@ const LoginForm = ({toastRef}) => {
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
-              placeholder="Your email"
+              placeholder="Tu email"
               containerStyle={styles.inputForm}
               rightIcon={
                 <Icon
@@ -67,7 +67,7 @@ const LoginForm = ({toastRef}) => {
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               value={values.password}
-              placeholder="Password"
+              placeholder="Contraseña"
               password={true}
               secureTextEntry={showPassword ? false : true}
               containerStyle={styles.inputForm}
@@ -86,7 +86,7 @@ const LoginForm = ({toastRef}) => {
               <Error error={errors.password} />
             )}
             <Button
-              title="Sign In!"
+              title="Iniciar sesion!"
               containerStyle={styles.btnContainerLogin}
               buttonStyle={styles.btnLogin}
               onPress={handleSubmit}
@@ -94,7 +94,7 @@ const LoginForm = ({toastRef}) => {
           </View>
         )}
       </Formik>
-      <Loading isVisible={isLoading} text="Signing in..." />
+      <Loading isVisible={isLoading} text="Iniciando sesion..." />
     </>
   );
 };

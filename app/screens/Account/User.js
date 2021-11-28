@@ -47,7 +47,7 @@ const User = () => {
         </>
       )}
       <Button
-        title="Log out"
+        title="Cerrar sesion"
         buttonStyle={styles.btnLogout}
         titleStyle={styles.btnLogoutText}
         onPress={() => firebase.auth.signOut()}
