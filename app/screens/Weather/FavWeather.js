@@ -5,6 +5,7 @@ import {FirebaseContext} from '../../firebase';
 
 import UserNotLogged from '../../components/UserNotLogged';
 import NoFavorites from '../../components/NoFavorites';
+import WeatherList from '../../components/Weather/WeatherList';
 
 const FavWeather = ({navigation}) => {
   const [isUserLogged, setIsUserLogged] = useState(null);
@@ -19,7 +20,11 @@ const FavWeather = ({navigation}) => {
   useFocusEffect(
     useCallback(() => {
       if (isUserLogged) {
-        (async () => {})();
+        (async () => {
+          const cities = await firebase.getFavoritesId();
+          const unique = [...new Set(cities)];
+          setFavCities(unique);
+        })();
       }
     }, [isUserLogged]),
   );
@@ -31,9 +36,7 @@ const FavWeather = ({navigation}) => {
       ) : favCities.length === 0 ? (
         <NoFavorites navigation={navigation} />
       ) : (
-        <View>
-          <Text>Mi clima favorito</Text>
-        </View>
+        <WeatherList cities={favCities} navigation={navigation} />
       )}
     </>
   );
