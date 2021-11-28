@@ -2,15 +2,15 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import colors from '../styles/palette';
-import Weather from '../screens/Weather/Weather';
+import Search from '../screens/Weather/Search';
 import SearchResult from '../screens/Weather/SearchResult';
 
 const Stack = createNativeStackNavigator();
 
-const WeatherStack = () => {
+const SearchStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="weather"
+      initialRouteName="search"
       screenOptions={() => ({
         headerStyle: {
           backgroundColor: colors.med3,
@@ -21,9 +21,9 @@ const WeatherStack = () => {
         },
       })}>
       <Stack.Screen
-        name="weather"
-        component={Weather}
-        options={{title: 'Clima'}}
+        name="search"
+        component={Search}
+        options={{title: 'Busqueda'}}
       />
       <Stack.Screen
         name="search-result"
@@ -34,4 +34,4 @@ const WeatherStack = () => {
   );
 };
 
-export default WeatherStack;
+export default SearchStack;

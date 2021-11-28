@@ -3,7 +3,7 @@ import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {Image} from 'react-native-elements';
 
 const DemoComponent = () => {
-  const imgPath = require('../assets/img/h-goku.png');
+  const imgPath = require('../../assets/img/h-goku.png');
   return (
     <View style={styles.view}>
       <Text>DemoComponent...</Text>

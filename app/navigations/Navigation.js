@@ -4,16 +4,15 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
 import {StatusBar} from 'react-native';
 
-
 import colors from '../styles/palette';
 import DemoStack from './DemoStack';
 import AccountStack from './AccountStack';
-import WeatherStack from './WeatherStack';
+import SearchStack from './SearchStack';
+import AboutStack from './AboutStack';
 
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
-
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor={colors.med3} />
@@ -39,14 +38,19 @@ const Navigation = () => {
           options={{title: 'Demo'}}
         />
         <Tab.Screen
+          name="about-stack"
+          component={AboutStack}
+          options={{title: 'Nosotros'}}
+        />
+        <Tab.Screen
           name="account-stack"
           component={AccountStack}
           options={{title: 'Mi Perfil'}}
         />
         <Tab.Screen
-          name="weather-stack"
-          component={WeatherStack}
-          options={{title: 'Clima'}}
+          name="search-stack"
+          component={SearchStack}
+          options={{title: 'Buscar'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
@@ -66,6 +70,18 @@ const screenOptions = (route, color) => {
     case 'account-stack':
       iconName = 'home-outline';
       iconType = 'material-community';
+      break;
+    case 'about-stack':
+      iconName = 'compass-outline';
+      iconType = 'material-community';
+      break;
+    case 'weather-stack':
+      iconName = 'white-balance-sunny';
+      iconType = 'material-community';
+      break;
+    case 'search-stack':
+      iconName = 'search';
+      iconType = 'material';
       break;
     default:
       iconName = 'alert-decagram';

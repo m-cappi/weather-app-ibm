@@ -3,11 +3,11 @@ import {ActivityIndicator, FlatList, StatusBar, SafeAreaView, StyleSheet, Text, 
 import {Image} from 'react-native-elements';
 
 const IMAGES ={
-  image1: require('../assets/img/1.png'),
-  image2: require('../assets/img/2.png'),
-  image3: require('../assets/img/3.png'),
-  image4: require('../assets/img/4.png'),
-  image5: require('../assets/img/5.png')
+  image1: require('../../assets/img/1.png'),
+  image2: require('../../assets/img/2.png'),
+  image3: require('../../assets/img/3.png'),
+  image4: require('../../assets/img/4.png'),
+  image5: require('../../assets/img/5.png')
 }
 
 
@@ -47,7 +47,7 @@ const Item = ({ title, subtitle }) => (
   </View>
 );
 
-const App = () => {
+const DemoQuienesComponent = () => {
   const renderItem = ({ item }) => (
     <View>
     <Image
@@ -107,4 +107,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default App;
+export default DemoQuienesComponent;
